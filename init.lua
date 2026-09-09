@@ -222,6 +222,35 @@ require ("lazy").setup({
         opts = {},
     },
 
+    --13. indent guides
+    {
+        "lukas-reineke/indent-blankline.nvim",
+        main = "ibl",
+        opts = {
+            indent = { char = "|" },
+            scope = { enabled = false }, -- keeps it clean and minimalistic
+        },
+    },
+
+    --14. luasnip + friendly-snippets
+    {
+        "L3MON4D3/LuaSnip",
+        dependencies = { "rafamadriz/friendly-snippets" },
+        config = function()
+            require("luasnip.loaders.from_vscode").lazy_load()
+        end,
+    },
+
+    --15. mason.nvim + nvim-lspconfig
+    {
+        "williamboman/mason.nvim",
+        opts = {},
+    },
+    {
+        "neovim/nvim-lspconfig",
+        dependencies = { "williamboman/mason.nvim" },
+    },
+
 
 
     -- color themes
